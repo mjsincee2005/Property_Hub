@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Heart, User, Menu, X, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,33 +19,35 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <Home className="h-8 w-8 text-blue-600" />
             <span className="text-2xl font-bold text-gray-900">PropertyHub</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">
+            <Link to="/buy" className="text-gray-700 hover:text-blue-600 font-medium">
               Buy
-            </a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">
+            </Link>
+            <Link to="/rent" className="text-gray-700 hover:text-blue-600 font-medium">
               Rent
-            </a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">
+            </Link>
+            <Link to="/sell" className="text-gray-700 hover:text-blue-600 font-medium">
               Sell
-            </a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">
+            </Link>
+            <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium">
               About
-            </a>
+            </Link>
           </nav>
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" size="sm">
-              <Heart className="h-5 w-5 mr-2" />
-              Favorites
-            </Button>
+            <Link to="/favorites">
+              <Button variant="ghost" size="sm">
+                <Heart className="h-5 w-5 mr-2" />
+                Favorites
+              </Button>
+            </Link>
             
             {isLoggedIn ? (
               <DropdownMenu>
@@ -55,7 +58,9 @@ const Header = () => {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                  <DropdownMenuItem>Profile</DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/account">Profile</Link>
+                  </DropdownMenuItem>
                   <DropdownMenuItem>My Properties</DropdownMenuItem>
                   <DropdownMenuItem>Settings</DropdownMenuItem>
                   <DropdownMenuItem onClick={() => setIsLoggedIn(false)}>
@@ -90,33 +95,42 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden border-t bg-white py-4">
             <nav className="flex flex-col space-y-4">
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium px-4">
+              <Link to="/buy" className="text-gray-700 hover:text-blue-600 font-medium px-4">
                 Buy
-              </a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium px-4">
+              </Link>
+              <Link to="/rent" className="text-gray-700 hover:text-blue-600 font-medium px-4">
                 Rent
-              </a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium px-4">
+              </Link>
+              <Link to="/sell" className="text-gray-700 hover:text-blue-600 font-medium px-4">
                 Sell
-              </a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium px-4">
+              </Link>
+              <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium px-4">
                 About
-              </a>
+              </Link>
               <div className="px-4 pt-4 border-t space-y-2">
-                <Button variant="ghost" size="sm" className="w-full justify-start">
-                  <Heart className="h-5 w-5 mr-2" />
-                  Favorites
-                </Button>
-                {isLoggedIn ? (
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    className="w-full justify-start"
-                    onClick={() => setIsLoggedIn(false)}
-                  >
-                    <User className="h-5 w-5 mr-2" />
-                    Sign Out
+                <Link to="/favorites">
+                  <Button variant="ghost" size="sm" className="w-full justify-start">
+                    <Heart className="h-5 w-5 mr-2" />
+                    Favorites
                   </Button>
+                </Link>
+                {isLoggedIn ? (
+                  <div className="space-y-2">
+                    <Link to="/account">
+                      <Button variant="ghost" size="sm" className="w-full justify-start">
+                        <User className="h-5 w-5 mr-2" />
+                        Account
+                      </Button>
+                    </Link>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="w-full justify-start"
+                      onClick={() => setIsLoggedIn(false)}
+                    >
+                      Sign Out
+                    </Button>
+                  </div>
                 ) : (
                   <div className="space-y-2">
                     <Button 
