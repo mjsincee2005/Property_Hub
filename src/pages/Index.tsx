@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Search, Filter, MapPin, Bed, Bath, Square, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -95,7 +94,7 @@ const Index = () => {
   const [properties, setProperties] = useState(mockProperties);
   const [searchTerm, setSearchTerm] = useState("");
   const [showFilters, setShowFilters] = useState(false);
-  const [viewMode, setViewMode] = useState("grid");
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
   const toggleFavorite = (propertyId: number) => {
     setProperties(prev => 
