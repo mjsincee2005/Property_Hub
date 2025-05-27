@@ -1,18 +1,15 @@
-# 🏠 PropFlow - Modern Property Listing Backend System 🚀
+# 🏠 Property Hub - Modern Property Listing Backend System 🚀
 
 [![Node.js](https://img.shields.io/badge/Node.js-18.x-green)](https://nodejs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org)
 [![MongoDB](https://img.shields.io/badge/MongoDB-7.0-brightgreen)](https://www.mongodb.com)
 [![Redis](https://img.shields.io/badge/Redis-7.0-red)](https://redis.io)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 ## 📹 System Demo Video
-<video width="100%" controls>
+<video controls>
   <source src="C:\Users\mjsin\Videos\Screen Recordings\Screen Recording 2025-05-27 171109.mp4" type="video/mp4">
-
 </video>
-
-> **Note:** Replace `YOUR_VIDEO_ID` with your actual YouTube video ID
 
 ## 🌟 Key Features
 - **Full CRUD Operations** for property listings
@@ -42,12 +39,7 @@
 
 ### Installation
 bash
-# Clone repository
-git clone https://github.com/yourusername/propflow.git
-cd propflow
-
 # Install dependencies
 npm install
-
 # Set up environment variables
 cp .env.example .env
